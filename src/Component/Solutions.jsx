@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import '../Style/Solutions.css'; // Importing the CSS file for styling
 import 'animate.css'; /* Make sure this is included if you are using animate.css */
 import facereg from "../Assest/facereg.mp4";
-import anomalydetection from "../Assest/anomalydetection.mp4";
-import anprdetection from "../Assest/anprdetection.mp4";
+import anomalydetection from "../Assest/anomalydetection2.mp4";
+import anprdetection from "../Assest/anprdetection2.mp4";
  
 const Solutions = () => {
   const [popupContent, setPopupContent] = useState(null);
@@ -79,7 +79,7 @@ const Solutions = () => {
                 </div>
                 <h3 className="video-heading">Face Verification & Recognition</h3>
                 <p className="bio-text">Face-based registration and verification is a cutting-edge system that uses facial recognition technology to authenticate individuals securely and efficiently. It captures and stores a person’s facial data as a unique identifier, enabling quick and accurate verification during critical processes.</p>
-                <button className="try-now-btn" id="try-btn">Try Now</button>
+                <button className="try-now-btn heartbeat" id="try-btn">Try Now</button>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ const Solutions = () => {
                 </div>
                 <h3 className="video-heading">Anomaly Detection</h3>
                 <p className="bio-text">Anomaly detection refers to the process of identifying unusual patterns, behaviors, or objects that deviate from the norm within a dataset, environment, or system. Leveraging advanced machine learning and AI techniques, this technology plays a critical role in ensuring safety, security, and operational efficiency across various domains.</p>
-                <button className="try-now-btn">Try Now</button>
+                <button className="try-now-btn heartbeat ">Try Now</button>
               </div>
  
               {/* Box 3 */}
@@ -127,7 +127,7 @@ const Solutions = () => {
                 </div>
                 <h3 className="video-heading">Automatic Number Plate Recognition</h3>
                 <p className="bio-text">Automated Number Plate Recognition (ANPR) technology is transforming how organizations manage vehicle access and security. By leveraging advanced optical character recognition (OCR) and AI-powered algorithms, ANPR systems capture, analyze, and authenticate vehicle license plates in real time, providing a seamless and secure entry experience.</p>
-                <button className="try-now-btn">Try Now</button>
+                <button className="try-now-btn heartbeat">Try Now</button>
               </div>
             </div>
           </div>

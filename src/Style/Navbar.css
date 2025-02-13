@@ -171,20 +171,26 @@
   margin-right: auto;
 }
 
+.contact-info p{
+  padding: 0.8rem 0rem;
+}
+
 /* Dropdown Menu Styles */
 .dropdown-menu {
   position: absolute;
   transform: translateX(-50%);
   top: 30px;
-  background: rgba(128, 128, 128, 0.27) !important;
+  /* background: rgba(128, 128, 128, 0.27) !important; */
+  /* background: rgba(217, 217, 217, 0.60) !important; */
+  background:rgb(255, 255, 255)!important;
   backdrop-filter: blur(20px) !important;
-  /* -webkit-backdrop-filter: blur(12px) !important; */
   will-change: backdrop-filter;
+  box-shadow: 4px 4px 10px rgba(217, 217, 217, 0.60);
   border-radius: 10px !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   display: flex;
   gap: 20px;
-  padding: 20px;
+  padding: 0.3rem 20px;
   z-index: 1000;
   width: 690px;
 }

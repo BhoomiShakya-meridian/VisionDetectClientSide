@@ -2,10 +2,21 @@ import React, { useState, useEffect, useRef } from "react";
 import "../../Style/EducationIndustry.css";
 import { FaArrowLeft } from "react-icons/fa";
 import EduIndustry from "../../Assest/EduIndustry.webp";
+import { useNavigate } from "react-router-dom";
+import Popup from '../Popup.jsx'; // Import the Popup component
+
+
 
 const EducationIndustry = () => {
     const [animatePage, setAnimatePage] = useState(false);
     const sectionsRef = useRef([]);
+        const [isPopupVisible, setIsPopupVisible] = useState(false);
+    
+        const navigate = useNavigate()
+    
+        const backButton = () => {
+            navigate('/')
+        }
 
     useEffect(() => {
         setAnimatePage(true);
@@ -32,13 +43,23 @@ const EducationIndustry = () => {
         };
     }, []);
 
+    const togglePopup = () => {
+        setIsPopupVisible((prev) => !prev);
+      };
+    
+      const FaceRegistrationClickFunc = () => {
+        navigate("/face-registrationTrial");
+      };
+
+
     return (
         <div className={`education-container ${animatePage ? "page-animate" : ""}`}>
             <div className="education-header">
-                <FaArrowLeft className="back-icon" />
+                <FaArrowLeft className="back-icon" onClick={backButton} />
                 <h1><bold>Education Industry</bold></h1>
-                <button className="request-btn">Request Demo</button>
+                <button className="request-btn" onClick={togglePopup}>Request Demo</button>
             </div>
+            <h1>Transforming Education with VisionDetect.AI: Enhancing Safety, Security, and Efficiency</h1>
 
             <div className="education-image">
                 <img src={EduIndustry} alt="Education Industry" />
@@ -47,7 +68,7 @@ const EducationIndustry = () => {
             <div className="education-content">
                 {/* Section One */}
                 <div ref={(el) => sectionsRef.current[0] = el} className="animated-section">
-                    <h1>Transforming Education with VisionDetect.AI: Enhancing Safety, Security, and Efficiency</h1>
+                    {/* <h1>Transforming Education with VisionDetect.AI: Enhancing Safety, Security, and Efficiency</h1> */}
                     <p>VisionDetect.ai offers cutting-edge AI-powered solutions tailored to the unique needs of educational institutions. From ensuring student safety to streamlining campus operations, VisionDetect.ai leverages advanced vision technology to create a secure, efficient, and conducive environment for learning.Crowd Detection for Safety and Compliance</p>
                     <br />
                     <p><strong>Managing large groups of students and staff in educational settings is challenging, especially during events or peak hours. VisionDetect.ai's crowd detection system ensures that campuses, school buildings, and event venues remain compliant with fire and safety regulations by:</strong></p>
@@ -144,6 +165,12 @@ const EducationIndustry = () => {
                     </p>
                 </div>
             </div>
+            {isPopupVisible && (
+        <Popup
+          togglePopup={togglePopup}
+          FaceRegistrationClickFunc={FaceRegistrationClickFunc}
+        />
+      )}
         </div>
     );
 };

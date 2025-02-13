@@ -2,10 +2,30 @@ import React, { useState, useEffect, useRef } from "react";
 import "../../Style/EducationIndustry.css";
 import { FaArrowLeft } from "react-icons/fa";
 import realestate from "../../Assest/realestate.webp";
+import { useNavigate } from "react-router-dom";
+import Popup from '../Popup.jsx'; // Import the Popup component
+
+
 
 const RealEstateIndustry = () => {
     const [animatePage, setAnimatePage] = useState(false);
     const sectionsRef = useRef([]);
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+        
+        const navigate = useNavigate()
+        
+        const backButton = () => {
+            navigate('/')
+        }
+    
+        const togglePopup = () => {
+            setIsPopupVisible((prev) => !prev);
+          };
+        
+          const FaceRegistrationClickFunc = () => {
+            navigate("/face-registrationTrial");
+          };
+    
 
     useEffect(() => {
         setAnimatePage(true);
@@ -35,10 +55,12 @@ const RealEstateIndustry = () => {
     return (
         <div className={`education-container ${animatePage ? "page-animate" : ""}`}>
             <div className="education-header">
-                <FaArrowLeft className="back-icon" />
+                <FaArrowLeft className="back-icon" onClick={backButton}/>
                 <h1><bold>Real-Estate Industry</bold></h1>
-                <button className="request-btn">Request Demo</button>
+                <button className="request-btn" onClick={togglePopup}>Request Demo</button>
             </div>
+            <h1>Revolutionizing Real Estate & Contracting with VisionDetect.ai</h1>
+
 
             <div className="education-image">
                 <img src={realestate} alt="Real-Estate Industry" />
@@ -47,7 +69,7 @@ const RealEstateIndustry = () => {
             <div className="education-content">
                 {/* Section One */}
                 <div ref={(el) => sectionsRef.current[0] = el} className="animated-section">
-                    <h1>Revolutionizing Real Estate & Contracting with VisionDetect.ai</h1>
+                    {/* <h1>Revolutionizing Real Estate & Contracting with VisionDetect.ai</h1> */}
                     <p>The construction and real estate industries are embracing digital transformation to address long-standing challenges in project management, safety, and security. VisionDetect.ai, powered by advanced artificial intelligence and computer vision technologies, is redefining how construction projects are managed and secured, offering unparalleled value to stakeholders.</p>
                 </div>
 
@@ -137,6 +159,12 @@ const RealEstateIndustry = () => {
                     <p>Embrace the future of construction management with VisionDetect.ai—because every project deserves to be smarter, safer, and more secure</p>
                 </div>
             </div>
+            {isPopupVisible && (
+        <Popup
+          togglePopup={togglePopup}
+          FaceRegistrationClickFunc={FaceRegistrationClickFunc}
+        />
+      )}
         </div>
     );
 };

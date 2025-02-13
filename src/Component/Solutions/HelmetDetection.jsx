@@ -1,70 +1,82 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../Style/FaceVerification.css";
-import anomalydetection from "../../Assest/anomalydetection.mp4";
+import anomalydetection from "../../Assest/anomalydetection2.mp4";
 import assistance from "../../Assest/assistance.webp";
+import { FiArrowLeft } from "react-icons/fi";
+
 
 const HelmetDetection = () => {
-     const [animatePage, setAnimatePage] = useState(false);
-    
-      // Refs for sections
-      const solutionRef = useRef(null);
-      const importanceRef = useRef(null);
-      const worksRef = useRef(null);
-      const applicationRef = useRef(null);
-      const useitRef = useRef(null);
-    
-    
-      const [isInViewSolution, setIsInViewSolution] = useState(false);
-      const [isInViewImportance, setIsInViewImportance] = useState(false);
-      const [isInViewWorks, setIsInViewWorks] = useState(false);
-      const [isInViewApplication, setIsInViewApplications] = useState(false);
-      const [isInViewUseIt, setIsInViewUseIt] = useState(false);
-    
-    
-      useEffect(() => {
+    const [animatePage, setAnimatePage] = useState(false);
+
+    // Refs for sections
+    const solutionRef = useRef(null);
+    const importanceRef = useRef(null);
+    const worksRef = useRef(null);
+    const applicationRef = useRef(null);
+    const useitRef = useRef(null);
+
+
+    const [isInViewSolution, setIsInViewSolution] = useState(false);
+    const [isInViewImportance, setIsInViewImportance] = useState(false);
+    const [isInViewWorks, setIsInViewWorks] = useState(false);
+    const [isInViewApplication, setIsInViewApplications] = useState(false);
+    const [isInViewUseIt, setIsInViewUseIt] = useState(false);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setVisible(true);
+        }, 200); // Small delay before starting animation
+    }, []);
+
+
+    useEffect(() => {
         setAnimatePage(true); // Trigger animation after page loads
-    
+
         const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              if (entry.target === solutionRef.current) {
-                setIsInViewSolution(true);
-              } else if (entry.target === importanceRef.current) {
-                setIsInViewImportance(true);
-              } else if (entry.target === worksRef.current) {
-                setIsInViewWorks(true);
-              }
-              else if (entry.target === applicationRef.current) {
-                setIsInViewApplications(true);
-              }
-              else if (entry.target === useitRef.current) {
-                setIsInViewUseIt(true);
-              }
-            }
-          });
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    if (entry.target === solutionRef.current) {
+                        setIsInViewSolution(true);
+                    } else if (entry.target === importanceRef.current) {
+                        setIsInViewImportance(true);
+                    } else if (entry.target === worksRef.current) {
+                        setIsInViewWorks(true);
+                    }
+                    else if (entry.target === applicationRef.current) {
+                        setIsInViewApplications(true);
+                    }
+                    else if (entry.target === useitRef.current) {
+                        setIsInViewUseIt(true);
+                    }
+                }
+            });
         }, { threshold: 0.2 }); // Trigger when 20% of the section is visible
-    
+
         if (solutionRef.current) observer.observe(solutionRef.current);
         if (importanceRef.current) observer.observe(importanceRef.current);
         if (worksRef.current) observer.observe(worksRef.current);
         if (applicationRef.current) observer.observe(applicationRef.current);
         if (useitRef.current) observer.observe(useitRef.current);
-    
+
         return () => {
-          if (solutionRef.current) observer.unobserve(solutionRef.current);
-          if (importanceRef.current) observer.unobserve(importanceRef.current);
-          if (worksRef.current) observer.unobserve(worksRef.current);
-          if (applicationRef.current) observer.unobserve(applicationRef.current);
-          if (useitRef.current) observer.unobserve(useitRef.current);
+            if (solutionRef.current) observer.unobserve(solutionRef.current);
+            if (importanceRef.current) observer.unobserve(importanceRef.current);
+            if (worksRef.current) observer.unobserve(worksRef.current);
+            if (applicationRef.current) observer.unobserve(applicationRef.current);
+            if (useitRef.current) observer.unobserve(useitRef.current);
         };
-      }, []);
-    
+    }, []);
+
     return (
         <div className={`face-verification ${animatePage ? "page-animate" : ""}`}>
             <div className="hero-section">
-                <div className="back-arrow" onClick={() => window.history.back()}>
+                {/* <div className="back-arrow" onClick={() => window.history.back()}>
                     &#8592;
+                </div> */}
+                <div className="absolute  w-10 h-10 m-2 flex items-center justify-center bg-black rounded-full cursor-pointer z-100" onClick={() => window.history.back()}>
+                    <FiArrowLeft className="text-white h-5 w-5 cursor-pointer" />
                 </div>
                 <video className="hero-video" autoPlay loop muted src={anomalydetection} />
             </div>
@@ -81,7 +93,7 @@ const HelmetDetection = () => {
 
             {/* Solutions List */}
             <div className="solutions-list">
-                <ul>
+                {/* <ul>
                     <li>
                         <Link to="/weapon-detection">
                             <button className="solution-btn">
@@ -94,31 +106,39 @@ const HelmetDetection = () => {
                             <button className="solution-btn">Mobile Phone Detection</button>
                         </Link>
                     </li>
-                    {/* <li>
-                        <Link to="#">
-                            <button className="solution-btn">Mask Detection</button>
-                        </Link>
-                    </li> */}
                     <li>
                         <Link to="/helmet-detection">
                             <button className="solution-btn">Helmet Detection</button>
                         </Link>
                     </li>
-                    {/* <li>
-                        <Link to="crowd-detection">
-                            <button className="solution-btn">Crowd Detection</button>
-                        </Link>
-                    </li> */}
+                    
+                </ul> */}
+                <ul>
+                    {[
+                        { path: "/weapon-detection", label: "Weapon Detection" },
+                        { path: "/mobile-detection", label: "Mobile Phone Detection" },
+                        { path: "/helmet-detection", label: "Helmet Detection" },
+                    ].map((item, index) => (
+                        <li
+                            key={index}
+                            className={`step_item ${visible ? "visible" : ""}`}
+                            style={{ transitionDelay: `${index * 0.2}s` }} // Dynamic delay
+                        >
+                            <Link to={item.path}>
+                                <button className="solution-btn">{item.label}</button>
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </div>
 
             {/* Paragraph Section */}
             <div
-        className={`solution-paragraph ${isInViewSolution ? 'animate__animated animate__fadeInUp' : ''}`}
-        ref={solutionRef}
-        style={{ opacity: isInViewSolution ? 1 : 0, transition: 'opacity 0.5s' }}
-      >
-                        <p>
+                className={`solution-paragraph ${isInViewSolution ? 'animate__animated animate__fadeInUp' : ''}`}
+                ref={solutionRef}
+                style={{ opacity: isInViewSolution ? 1 : 0, transition: 'opacity 0.5s' }}
+            >
+                <p>
                     <strong> What is Helmet Detection? </strong>
                     <br></br>
                     <br></br>
@@ -127,11 +147,11 @@ const HelmetDetection = () => {
             </div>
 
             <div
-        className={`importance-section ${isInViewImportance ? 'animate__animated animate__fadeInUp' : ''}`}
-        ref={importanceRef}
-        style={{ opacity: isInViewImportance ? 1 : 0, transition: 'opacity 0.5s' }}
-      >
-                        <h2>
+                className={`importance-section ${isInViewImportance ? 'animate__animated animate__fadeInUp' : ''}`}
+                ref={importanceRef}
+                style={{ opacity: isInViewImportance ? 1 : 0, transition: 'opacity 0.5s' }}
+            >
+                <h2>
                     <span className="blue-text"> Why is</span> Helmet Detection <span className="blue-text">important</span> for you?
                 </h2>
                 <span id="helmet-pargrph">
@@ -157,12 +177,12 @@ const HelmetDetection = () => {
             </div>
 
             <div
-        className={`how-it-works ${isInViewWorks ? 'animate__animated animate__fadeInUp' : ''}`}
-        ref={worksRef}
-        style={{ opacity: isInViewWorks ? 1 : 0, transition: 'opacity 0.5s' }}
-        id="works"
-      > 
-                      <h2>
+                className={`how-it-works ${isInViewWorks ? 'animate__animated animate__fadeInUp' : ''}`}
+                ref={worksRef}
+                style={{ opacity: isInViewWorks ? 1 : 0, transition: 'opacity 0.5s' }}
+                id="works"
+            >
+                <h2>
                     <span className="blue-text">How</span> it <span className="blue-text">Works?</span>
                 </h2>
                 <div className="how-it-works-steps">
@@ -191,11 +211,11 @@ const HelmetDetection = () => {
             </div>
 
             <div
-        className={`importance-section ${isInViewUseIt ? 'animate__animated animate__fadeInUp' : ''}`}
-        ref={useitRef}
-        style={{ opacity: isInViewUseIt ? 1 : 0, transition: 'opacity 0.5s' }}
-      >
-                        <h2>
+                className={`importance-section ${isInViewUseIt ? 'animate__animated animate__fadeInUp' : ''}`}
+                ref={useitRef}
+                style={{ opacity: isInViewUseIt ? 1 : 0, transition: 'opacity 0.5s' }}
+            >
+                <h2>
                     <span className="blue-text"> When </span> to <span className="blue-text"> use it? </span>
                 </h2>
                 <span id="helmet-pargrph">
@@ -223,10 +243,10 @@ const HelmetDetection = () => {
 
             {/* Applications */}
             <div
-        className={`importance-section ${isInViewApplication ? 'animate__animated animate__fadeInUp' : ''}`}
-        ref={applicationRef}
-        style={{ opacity: isInViewApplication ? 1 : 0, transition: 'opacity 0.5s' }}
-      >
+                className={`importance-section ${isInViewApplication ? 'animate__animated animate__fadeInUp' : ''}`}
+                ref={applicationRef}
+                style={{ opacity: isInViewApplication ? 1 : 0, transition: 'opacity 0.5s' }}
+            >
                 <h2>
                     <span className="blue-text">Applications</span>
                 </h2>

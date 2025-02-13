@@ -1,8 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../Style/FaceVerification.css";
-import anomalydetection from "../../Assest/anomalydetection.mp4";
+import anomalydetection from "../../Assest/anomalydetection2.mp4";
 import assistance from "../../Assest/assistance.webp";
+import { FiArrowLeft } from "react-icons/fi";
+
 
 const WeaponDetection = () => {
   const [animatePage, setAnimatePage] = useState(false);
@@ -20,6 +22,13 @@ const WeaponDetection = () => {
   const [isInViewWorks, setIsInViewWorks] = useState(false);
   const [isInViewApplication, setIsInViewApplications] = useState(false);
   const [isInViewUseIt, setIsInViewUseIt] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setVisible(true);
+    }, 200); // Small delay before starting animation
+  }, []);
 
 
   useEffect(() => {
@@ -63,8 +72,11 @@ const WeaponDetection = () => {
   return (
     <div className={`face-verification ${animatePage ? "page-animate" : ""}`}>
       <div className="hero-section">
-        <div className="back-arrow" onClick={() => window.history.back()}>
+        {/* <div className="back-arrow" onClick={() => window.history.back()}>
           &#8592;
+        </div> */}
+        <div className="absolute  w-10 h-10 m-2 flex items-center justify-center bg-black rounded-full cursor-pointer z-100" onClick={() => window.history.back()}>
+          <FiArrowLeft className="text-white h-5 w-5 cursor-pointer" />
         </div>
         <video className="hero-video" autoPlay loop muted src={anomalydetection} />
       </div>
@@ -81,14 +93,7 @@ const WeaponDetection = () => {
 
       {/* Solutions List */}
       <div className="solutions-list">
-        <ul>
-          {/* <li>
-            <Link to="#">
-              <button className="solution-btn">
-                Weapon Detection
-              </button>
-            </Link>
-          </li> */}
+        {/* <ul>
           <li>
             <Link to="/mobile-detection">
               <button className="solution-btn">Mobile Phone Detection</button>
@@ -104,12 +109,27 @@ const WeaponDetection = () => {
               <button className="solution-btn">Helmet Detection</button>
             </Link>
           </li>
-          {/* <li>
-            <Link to="/crowd-detection">
-              <button className="solution-btn">Crowd Detection</button>
-            </Link>
-          </li> */}
+        </ul> */}
+        <ul>
+          {[
+            { path: "/mobile-detection", label: "Mobile Phone Detection" },
+            { path: "/mask-detection", label: "Mask Detection" },
+            { path: "/helmet-detection", label: "Helmet Detection" },
+
+
+          ].map((item, index) => (
+            <li
+              key={index}
+              className={`step_item ${visible ? "visible" : ""}`}
+              style={{ transitionDelay: `${index * 0.2}s` }} // Dynamic delay
+            >
+              <Link to={item.path}>
+                <button className="solution-btn">{item.label}</button>
+              </Link>
+            </li>
+          ))}
         </ul>
+
       </div>
 
       {/* Paragraph Section */}

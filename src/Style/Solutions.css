@@ -94,6 +94,7 @@
  
 /* Request a Demo Button */
 .try-now-btn {
+  margin: 1rem 0;
   position: relative;
   display: flex;
   align-items: center;
@@ -108,10 +109,31 @@
   background:
   linear-gradient(black, black) padding-box,
   conic-gradient(from var(--bg-angle), #133AFF 0%, #EB0FB1 31%, #09DCEC 100%) border-box;
-  animation: spin 3s linear infinite !important;
+  animation: spin 3s linear infinite, heartbeat 1.5s infinite !important;
   cursor: pointer;
   z-index: 1;
+  /* animation: heartbeat 1.5s infinite, gradient-border 3s linear infinite, fadeIn 1s ease-out forwards; */
 }
+
+/* .heartbeat {
+  animation: heartbeat 1.5s infinite !important;
+} */
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1); /* Normal size */
+  }
+  30% {
+    transform: scale(1.05); /* Slightly bigger */
+  }
+  60% {
+    transform: scale(1); /* Back to normal size */
+  }
+  100% {
+    transform: scale(1); /* End with normal size */
+  }
+}
+
  
 @property --bg-angle {
   syntax: '<angle>';

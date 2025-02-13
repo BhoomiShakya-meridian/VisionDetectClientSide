@@ -2,10 +2,29 @@ import React, { useState, useEffect, useRef } from "react";
 import "../../Style/EducationIndustry.css";
 import { FaArrowLeft } from "react-icons/fa";
 import manucacturing from "../../Assest/manucacturing.webp";
+import { useNavigate } from "react-router-dom";
+import Popup from '../Popup.jsx'; // Import the Popup component
+
 
 const ManufacturingIndustry = () => {
     const [animatePage, setAnimatePage] = useState(false);
     const sectionsRef = useRef([]);
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+    
+    const navigate = useNavigate()
+    
+    const backButton = () => {
+        navigate('/')
+    }
+
+    const togglePopup = () => {
+        setIsPopupVisible((prev) => !prev);
+      };
+    
+      const FaceRegistrationClickFunc = () => {
+        navigate("/face-registrationTrial");
+      };
+
 
     useEffect(() => {
         setAnimatePage(true);
@@ -35,10 +54,11 @@ const ManufacturingIndustry = () => {
     return (
         <div className={`education-container ${animatePage ? "page-animate" : ""}`}>
             <div className="education-header">
-                <FaArrowLeft className="back-icon" />
+                <FaArrowLeft className="back-icon" onClick={backButton}/>
                 <h1><bold>Manufacturing Industry</bold></h1>
-                <button className="request-btn">Request Demo</button>
+                <button className="request-btn" onClick={togglePopup}>Request Demo</button>
             </div>
+                    <h1>Transforming Workplace Safety with VisionDetect.ai in Manufacturing</h1>
 
             <div className="education-image">
                 <img src={manucacturing} alt="Manufacturing Industry" />
@@ -47,7 +67,7 @@ const ManufacturingIndustry = () => {
             <div className="education-content">
                 {/* Section One */}
                 <div ref={(el) => sectionsRef.current[0] = el} className="animated-section">
-                    <h1>Transforming Workplace Safety with VisionDetect.ai in Manufacturing</h1>
+                    {/* <h1>Transforming Workplace Safety with VisionDetect.ai in Manufacturing</h1> */}
                     <p>In the manufacturing industry, ensuring workplace safety and operational efficiency is paramount. VisionDetect.ai, an advanced AI-powered platform, revolutionizes safety management by leveraging real-time image and video analytics to proactively identify and mitigate potential risks.</p>
                 </div>
 
@@ -122,6 +142,12 @@ const ManufacturingIndustry = () => {
                     <p>As industries embrace Industry 4.0, VisionDetect.ai positions itself as a critical enabler of smart manufacturing. By combining safety compliance with operational oversight, it empowers businesses to protect their workforce, optimize processes, and achieve long-term sustainability.</p>
                 </div>
             </div>
+            {isPopupVisible && (
+        <Popup
+          togglePopup={togglePopup}
+          FaceRegistrationClickFunc={FaceRegistrationClickFunc}
+        />
+      )}
         </div>
     );
 };

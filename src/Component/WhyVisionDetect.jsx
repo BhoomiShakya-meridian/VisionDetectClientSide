@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
 import "../Style/WhyVisionDetect.css";
+import Popup from "./Popup"; // Import the Popup component
 import Reliable from "../Assest/Reliable.webp";
 import Secure from "../Assest/Secure.webp";
 import Accurate from "../Assest/Accurate.webp";
@@ -10,6 +11,7 @@ const WhyVisionDetect = () => {
   const [countersInView, setCountersInView] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [text, setText] = useState(""); // State for live typing
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const paragraph = "“Why monitor endlessly when AI can do it for you? VisionDetect.ai ensures you to see what matters, exactly when it matters.”";
   const [counters, setCounters] = useState({
     accuracy: 0,
@@ -104,6 +106,14 @@ const WhyVisionDetect = () => {
       }, interval);
     }
   }, [countersInView]);
+
+  const togglePopup = () => {
+    setIsPopupVisible((prev) => !prev);
+  };
+
+  const FaceRegistrationClickFunc = () => {
+    navigate("/face-registrationTrial");
+  };
 
   return (
     <div id="Why-VisionDetect">
@@ -210,11 +220,17 @@ const WhyVisionDetect = () => {
         <div className="ceo_content">
           <h3 className="ceo_name">Shankar Kambam</h3>
           <p className="ceo_title">CEO & MD, Meridian Solutions Private Limited</p>
-          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="request_demo_btn">
+          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="request_demo_btn heartbeat" onClick={togglePopup}>
             Request Demo
           </motion.button>
         </div>
       </motion.div>
+      {isPopupVisible && (
+        <Popup
+          togglePopup={togglePopup}
+          FaceRegistrationClickFunc={FaceRegistrationClickFunc}
+        />
+      )}
     </div>
   );
 };

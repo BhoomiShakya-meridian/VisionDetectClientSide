@@ -2,10 +2,28 @@ import React, { useState, useEffect, useRef } from "react";
 import "../../Style/EducationIndustry.css";
 import { FaArrowLeft } from "react-icons/fa";
 import servicesindus from "../../Assest/servicesindus.webp";
+import { useNavigate } from "react-router-dom";
+import Popup from '../Popup.jsx'; // Import the Popup component
+
 
 const ServicesIndustry = () => {
     const [animatePage, setAnimatePage] = useState(false);
     const sectionsRef = useRef([]);
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+    
+    const navigate = useNavigate()
+    
+    const backButton = () => {
+        navigate('/')
+    }
+
+    const togglePopup = () => {
+        setIsPopupVisible((prev) => !prev);
+      };
+    
+      const FaceRegistrationClickFunc = () => {
+        navigate("/face-registrationTrial");
+      };
 
     useEffect(() => {
         setAnimatePage(true);
@@ -35,10 +53,13 @@ const ServicesIndustry = () => {
     return (
         <div className={`education-container ${animatePage ? "page-animate" : ""}`}>
             <div className="education-header">
-                <FaArrowLeft className="back-icon" />
+                <FaArrowLeft className="back-icon" onClick={backButton}/>
                 <h1><bold>Services Industry</bold></h1>
-                <button className="request-btn">Request Demo</button>
+                <button className="request-btn" onClick={togglePopup}>Request Demo</button>
             </div>
+
+            <h1>Enhancing the Service Industry with VisionDetect.ai</h1>
+
 
             <div className="education-image">
                 <img src={servicesindus} alt="Services Industry" />
@@ -47,7 +68,7 @@ const ServicesIndustry = () => {
             <div className="education-content">
                 {/* Section One */}
                 <div ref={(el) => sectionsRef.current[0] = el} className="animated-section">
-                    <h1>Enhancing the Service Industry with VisionDetect.ai</h1>
+                    {/* <h1>Enhancing the Service Industry with VisionDetect.ai</h1> */}
                     <h1>Hospitality Sector</h1>
                     <p>VisionDetect.ai elevates operational standards in hotels, restaurants, and resorts by providing intelligent monitoring solutions. Crowd detection ensures seamless management of high-traffic areas like lobbies, event spaces, and dining areas, reducing wait times and improving guest satisfaction. Anomaly detection adds an extra layer of security by identifying unauthorized access or unattended luggage, mitigating potential risks in real-time. Furthermore, actionable analytics offer insights into guest behavior and preferences, enabling personalized services and targeted promotions.</p>
                 </div>
@@ -97,6 +118,12 @@ const ServicesIndustry = () => {
                     </ul>
                 </div>
             </div>
+            {isPopupVisible && (
+        <Popup
+          togglePopup={togglePopup}
+          FaceRegistrationClickFunc={FaceRegistrationClickFunc}
+        />
+      )}
         </div>
     );
 };

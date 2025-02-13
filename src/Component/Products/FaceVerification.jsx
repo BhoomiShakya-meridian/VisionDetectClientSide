@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import "../../Style/FaceVerification.css";
 import facereg from "../../Assest/facereg.mp4";
 import assistance from "../../Assest/assistance.webp";
+import { FiArrowLeft } from "react-icons/fi";
+
 
 const FaceVerification = () => {
   const navigate = useNavigate();
@@ -15,6 +17,14 @@ const FaceVerification = () => {
   const importanceRef = useRef(null);
   const howItWorksRef = useRef(null);
   const applicationsRef = useRef(null);
+
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setVisible(true);
+    }, 200); // Small delay before starting animation
+  }, []);
 
   useEffect(() => {
     setAnimatePage(true); // Trigger animation after page loads
@@ -58,9 +68,12 @@ const FaceVerification = () => {
     <div className={`face-verification ${animatePage ? "page-animate" : ""}`}>
       {/* Hero Section */}
       <div className="hero-section">
-        <div className="back-arrow" onClick={handleBack}>
+        {/* <div className="back-arrow" onClick={handleBack}>
           &#8592;
-        </div>
+        </div> */}
+        <div className="absolute  w-10 h-10 m-2 flex items-center justify-center bg-black rounded-full cursor-pointer z-100" onClick={() => window.history.back()}>
+                  <FiArrowLeft className="text-white h-5 w-5 cursor-pointer"/>
+                </div>
         <video className="hero-video" autoPlay loop muted src={facereg} />
       </div>
 
@@ -76,30 +89,49 @@ const FaceVerification = () => {
 
       {/* Solutions List */}
       <div className="solutions-list">
-        <ul>
-          <li>
+        {/* <ul>
+          <li className="step_item">
             <Link to="/exam-verification">
               <button className="solution-btn">
                 Exam Face Registration & Verification
               </button>
             </Link>
           </li>
-          <li>
+          <li className="step_item">
             <Link to="/face-kyc">
               <button className="solution-btn">Face KYC (Know Your Customer)</button>
             </Link>
           </li>
-          <li>
+          <li className="step_item">
             <Link to="/apartment-verification">
               <button className="solution-btn">Apartment Entry Verification</button>
             </Link>
           </li>
-          <li>
+          <li className="step_item">
             <Link to="/face-ticketing">
               <button className="solution-btn">Face Based Ticketing</button>
             </Link>
           </li>
-        </ul>
+        </ul> */}
+
+<ul>
+        {[
+          { path: "/exam-verification", label: "Exam Face Registration & Verification" },
+          { path: "/face-kyc", label: "Face KYC (Know Your Customer)" },
+          { path: "/apartment-verification", label: "Apartment Entry Verification" },
+          { path: "/face-ticketing", label: "Face Based Ticketing" }
+        ].map((item, index) => (
+          <li
+            key={index}
+            className={`step_item ${visible ? "visible" : ""}`}
+            style={{ transitionDelay: `${index * 0.2}s` }} // Dynamic delay
+          >
+            <Link to={item.path}>
+              <button className="solution-btn">{item.label}</button>
+            </Link>
+          </li>
+        ))}
+      </ul>
       </div>
 
       {/* Paragraph Section */}

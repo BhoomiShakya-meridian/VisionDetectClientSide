@@ -2,10 +2,17 @@ import React, { useState, useEffect, useRef } from "react";
 import "../../Style/EducationIndustry.css";
 import { FaArrowLeft } from "react-icons/fa";
 import technicalcorner from "../../Assest/technicalcorner.webp";
+import { useNavigate } from "react-router-dom";
+import Popup from '../Popup.jsx'; // Import the Popup component
+import crowd from "../../Assest/crowd.mp4";
+
 
 const Technicalcorner = () => {
     const [animatePage, setAnimatePage] = useState(false);
     const sectionsRef = useRef([]);
+    const navigate = useNavigate()
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+    
 
     useEffect(() => {
         setAnimatePage(true);
@@ -32,23 +39,51 @@ const Technicalcorner = () => {
         };
     }, []);
 
+    const backButton = () => {
+        navigate('/')
+    }
+
+    const togglePopup = () => {
+        setIsPopupVisible((prev) => !prev);
+      };
+    
+      const FaceRegistrationClickFunc = () => {
+        navigate("/face-registrationTrial");
+      };
+
     return (
         <div className={`education-container ${animatePage ? "page-animate" : ""}`}>
             <div className="education-header">
-                <FaArrowLeft className="back-icon" />
+                <FaArrowLeft className="back-icon" onClick={backButton} />
                 {/* <h1><bold>Technical corner</bold></h1> */}
                 <h1>Technical corner</h1>
-                <button className="request-btn">Request Demo</button>
+                <button className="request-btn" onClick={togglePopup}>Request Demo</button>
             </div>
 
-            <div className="education-image">
+            {/* <div ref={(el) => sectionsRef.current[0] = el} className="animated-section">
+                <h1>Product Overview and Documentation</h1>
+            </div> */}
+
+            <h1>Product Overview and Documentation</h1>
+
+
+            {/* <div className="education-image">
                 <img src={technicalcorner} alt="Manufacturing Industry" />
+            </div> */}
+
+            <div className="education-image">
+            <video autoPlay loop muted playsInline className="video-background">
+                <source src={crowd} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
             </div>
+
+
 
             <div className="education-content">
                 {/* Section One */}
                 <div ref={(el) => sectionsRef.current[0] = el} className="animated-section">
-                    <h1>Product Overview and Documentation</h1>
+                    {/* <h1>Product Overview and Documentation</h1> */}
                     <h4>Azure-Powered Face Recognition System</h4>
                     <p>Welcome to the developer hub for our Visiondetect.ai platform. Our platform leverages high-performance, GPU-enabled Azure virtual machines and cutting-edge data security features to deliver reliable, scalable, and secure face recognition solutions.</p>
                 </div>
@@ -120,6 +155,12 @@ const Technicalcorner = () => {
                     </ul>
                 </div>
             </div>
+            {isPopupVisible && (
+        <Popup
+          togglePopup={togglePopup}
+          FaceRegistrationClickFunc={FaceRegistrationClickFunc}
+        />
+      )}
         </div>
     );
 };

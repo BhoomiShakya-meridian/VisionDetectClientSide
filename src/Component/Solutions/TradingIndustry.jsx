@@ -2,10 +2,30 @@ import React, { useState, useEffect, useRef } from "react";
 import "../../Style/EducationIndustry.css";
 import { FaArrowLeft } from "react-icons/fa";
 import tradingindus from "../../Assest/tradingindus.webp";
+import { useNavigate } from "react-router-dom";
+import Popup from '../Popup.jsx'; // Import the Popup component
+
 
 const TradingIndustry = () => {
     const [animatePage, setAnimatePage] = useState(false);
     const sectionsRef = useRef([]);
+
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+    
+    const navigate = useNavigate()
+    
+    const backButton = () => {
+        navigate('/')
+    }
+
+    const togglePopup = () => {
+        setIsPopupVisible((prev) => !prev);
+      };
+    
+      const FaceRegistrationClickFunc = () => {
+        navigate("/face-registrationTrial");
+      };
+
 
     useEffect(() => {
         setAnimatePage(true);
@@ -35,10 +55,12 @@ const TradingIndustry = () => {
     return (
         <div className={`education-container ${animatePage ? "page-animate" : ""}`}>
             <div className="education-header">
-                <FaArrowLeft className="back-icon" />
+                <FaArrowLeft className="back-icon" onClick={backButton}/>
                 <h1><bold>Trading Industry</bold></h1>
-                <button className="request-btn">Request Demo</button>
+                <button className="request-btn" onClick={togglePopup}>Request Demo</button>
             </div>
+            <h1>Enhancing Trading & Distribution with VisionDetect.ai</h1>
+
 
             <div className="education-image">
                 <img src={tradingindus} alt="Education Industry" />
@@ -47,7 +69,7 @@ const TradingIndustry = () => {
             <div className="education-content">
                 {/* Section One */}
                 <div ref={(el) => sectionsRef.current[0] = el} className="animated-section">
-                    <h1>Enhancing Trading & Distribution with VisionDetect.ai</h1>
+                    {/* <h1>Enhancing Trading & Distribution with VisionDetect.ai</h1> */}
                     <p>In the fast-paced world of trading and distribution, VisionDetect.ai stands out as a powerful platform designed to address the complexities of logistics and security. With its AI-driven capabilities, it offers businesses an opportunity to streamline operations, protect assets, and optimize the flow of goods. One of its core features, Automated Number Plate Recognition (ANPR), provides seamless vehicle tracking, delivering real-time insights into fleet movements and deliveries. This enables companies to manage large-scale distribution networks with greater efficiency, reducing delays, cutting costs, and ensuring timely delivery of goods.</p>
                 </div>
 
@@ -88,6 +110,12 @@ const TradingIndustry = () => {
                     </ul>
                 </div>
             </div>
+            {isPopupVisible && (
+        <Popup
+          togglePopup={togglePopup}
+          FaceRegistrationClickFunc={FaceRegistrationClickFunc}
+        />
+      )}
         </div>
     );
 };
