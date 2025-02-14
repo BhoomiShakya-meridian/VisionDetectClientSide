@@ -12,7 +12,7 @@ const Technicalcorner = () => {
     const sectionsRef = useRef([]);
     const navigate = useNavigate()
     const [isPopupVisible, setIsPopupVisible] = useState(false);
-    
+
 
     useEffect(() => {
         setAnimatePage(true);
@@ -45,11 +45,11 @@ const Technicalcorner = () => {
 
     const togglePopup = () => {
         setIsPopupVisible((prev) => !prev);
-      };
-    
-      const FaceRegistrationClickFunc = () => {
+    };
+
+    const FaceRegistrationClickFunc = () => {
         navigate("/face-registrationTrial");
-      };
+    };
 
     return (
         <div className={`education-container ${animatePage ? "page-animate" : ""}`}>
@@ -71,12 +71,12 @@ const Technicalcorner = () => {
                 <img src={technicalcorner} alt="Manufacturing Industry" />
             </div> */}
 
-            <div className="education-image">
-            <video autoPlay loop muted playsInline className="video-background">
-                <source src={crowd} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            </div>
+<div className="education-image">
+  <video autoPlay loop muted playsInline className="video-background">
+    <source src={crowd} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 
 
@@ -156,11 +156,11 @@ const Technicalcorner = () => {
                 </div>
             </div>
             {isPopupVisible && (
-        <Popup
-          togglePopup={togglePopup}
-          FaceRegistrationClickFunc={FaceRegistrationClickFunc}
-        />
-      )}
+                <Popup
+                    togglePopup={togglePopup}
+                    FaceRegistrationClickFunc={FaceRegistrationClickFunc}
+                />
+            )}
         </div>
     );
 };

@@ -1,13 +1,29 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../Style/FaceVerification.css";
 import anomalydetection from "../../Assest/anomalydetection2.mp4";
+import mobilevideo from '../../Assest/mobilevideo.mp4'
 import assistance from "../../Assest/assistance.webp";
 import { FiArrowLeft } from "react-icons/fi";
+import Popup from '../Popup.jsx'; // Import the Popup component
+import { FaHome } from "react-icons/fa";
+
 
 
 const MobileDetection = () => {
   const [animatePage, setAnimatePage] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const navigate = useNavigate()
+
+
+  const togglePopup = () => {
+    setIsPopupVisible((prev) => !prev);
+  };
+
+  const FaceRegistrationClickFunc = () => {
+    navigate("/face-registrationTrial");
+  };
+
 
   // Refs for sections
   const solutionRef = useRef(null);
@@ -77,7 +93,10 @@ const MobileDetection = () => {
         <div className="absolute  w-10 h-10 m-2 flex items-center justify-center bg-black rounded-full cursor-pointer z-100" onClick={() => window.history.back()}>
           <FiArrowLeft className="text-white h-5 w-5 cursor-pointer" />
         </div>
-        <video className="hero-video" autoPlay loop muted src={anomalydetection} />
+            <div className="absolute w-10 h-10 m-2 flex items-center justify-center left-[3rem] bg-black rounded-full cursor-pointer z-100" onClick={() =>navigate('/') }>
+                  <FaHome className="text-white h-5 w-5 cursor-pointer"/>
+                </div>
+        <video className="hero-video" autoPlay loop muted src={mobilevideo} />
       </div>
 
       {/* Content Section */}
@@ -86,7 +105,7 @@ const MobileDetection = () => {
           <h1>Mobile Phone Detection</h1>
         </div>
         <div className="content-right">
-          <button className="action-btn">Request a demo</button>
+          <button className="action-btn" onClick={togglePopup}>Request a demo</button>
         </div>
       </div>
 
@@ -242,6 +261,12 @@ const MobileDetection = () => {
           </li>
         </ul>
       </div>
+      {isPopupVisible && (
+        <Popup
+          togglePopup={togglePopup}
+          FaceRegistrationClickFunc={FaceRegistrationClickFunc}
+        />
+      )}
     </div>
   );
 };

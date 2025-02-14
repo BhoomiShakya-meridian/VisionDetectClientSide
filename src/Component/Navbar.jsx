@@ -33,153 +33,202 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center">
-          <ul className="navbar-links">
-            <li
-              onMouseEnter={() => handleMouseEnter("products")}
-              onMouseLeave={() => handleMouseLeave("products")}
+          <ul className="navbar-links ">
+            <div
+              className="relative inline-block"
+              // Apply both events to the wrapper
+              onMouseEnter={() => setShowProducts(true)}
+              onMouseLeave={() => setShowProducts(false)}
             >
-              <a href="#product">Products</a>
+              <li><button className="product-btn">Products</button></li>
               {showProducts && (
-                <div
-                  className="dropdown-menu product-dropdown"
-                  onMouseEnter={() => setShowProducts(true)}
-                  onMouseLeave={() => setShowProducts(false)}
-                >
-                  <div className="dropdown-left">
-                    <ul>
-                      <li className="blue-text">
-                        <Link to="/face-verification">Face Verification & Registration</Link>
-                        {/* blue in color */}
+                <div className="absolute flex justify-center border-1 border-[#999999] w-[700px] top-full left-0 mt-[-0rem] text-[#133AFF] bg-white shadow-lg rounded-3xl z-10 animate__animated animate__fadeInDown">
+                  {/* Left Section for Links */}
+                  <div className="p-4 flex-1">
+                    <ul className="space-y-4 mt-4">
+                      <li className="hover:scale-105 transition-all duration-200 ease-in-out">
+                        <Link
+                          to="/face-verification"
+                          className="colorBlue font-semibold"
+                        >
+                          Face Verification & Registration
+                        </Link>
                       </li>
-                      <li className="blue-text">
-                        <Link to="/anomaly-detection"> Anomaly Detection </Link>
-                        {/* blue in color */}
+                      <li className="hover:scale-105 transition-all duration-200 ease-in-out">
+                        <Link
+                          to="/anomaly-detection"
+                          className="colorBlue font-semibold"
+                        >
+                          Anomaly Detection
+                        </Link>
                       </li>
-                      <li className="blue-text">
-                        <Link to="/anpr"> Automatic Number Plate Detection </Link>
-                        {/* blue in color */}
+                      <li className="hover:scale-105 transition-all duration-200 ease-in-out">
+                        <Link
+                          to="/anpr"
+                          className="colorBlue font-semibold"
+                        >
+                          Automatic Number Plate Detection
+                        </Link>
                       </li>
                     </ul>
+
                   </div>
-                  <div className="dropdown-right">
+                  {/* Right Section for Image */}
+                  <div className="p-4 flex items-center justify-center">
                     <img
                       src={dropdwnimg}
                       alt="Product Visual"
-                      className="dropdown-image"
+                      className="w-76 h-auto"  // Increased width for a larger image
                     />
                   </div>
                 </div>
               )}
-            </li>
-            <li
-              onMouseEnter={() => handleMouseEnter("solutions")}
-              onMouseLeave={() => handleMouseLeave("solutions")}
+
+            </div>
+            <div
+              className="relative inline-block"
+              onMouseEnter={() => setShowSolutions(true)}
+              onMouseLeave={() => setShowSolutions(false)}
             >
-              <a href="#solution">Solutions</a>
+              <li>
+                <button className="product-btn">Solutions</button>
+              </li>
               {showSolutions && (
-                <div
-                  className="dropdown-menu solution-dropdown"
-                  onMouseEnter={() => setShowSolutions(true)}
-                  onMouseLeave={() => setShowSolutions(false)}
-                >
-                  <div className="dropdown-left">
-                    <ul>
-                      <li className="blue-text">
-                        <Link to="/face-verification">Face Verification & Registration</Link>
-                        {/* blue in color */}
-                      </li>
-                      <ul>
-                        <li>
-                          <Link to="/exam-verification"> Exam Face Registration & Verification </Link>
+                <div className="absolute flex border border-[#999999] w-[700px] top-full left-[-10rem] bg-white shadow-lg rounded-3xl z-10 animate__animated animate__fadeInDown">
+                  {/* Left Section for Solutions Links */}
+                  <div className="p-4 flex-1">
+                    <div>
+                      <ul className="space-y-2">
+                        {/* First Heading */}
+                        <li className="text-[#133AFF] font-semibold space-y-1 hover:underline">
+                          <Link to="/face-verification">
+                            Face Verification & Registration
+                          </Link>
                         </li>
-                        <li>
-                          <Link to="/face-kyc">Face KYC </Link>
+                        <ul className=" space-y-2">
+                          <li className="hover:underline">
+                            <Link to="/exam-verification" className="text-black">
+                              Exam Face Registration & Verification
+                            </Link>
+                          </li>
+                          <li className="hover:underline">
+                            <Link to="/face-kyc" className="text-black">
+                              Face KYC
+                            </Link>
+                          </li>
+                          <li className="hover:underline">
+                            <Link to="/apartment-verification" className="text-black">
+                              Apartment Entry Verification
+                            </Link>
+                          </li>
+                          <li className="hover:underline">
+                            <Link to="/face-ticketing" className="text-black">
+                              Face Based Ticketing
+                            </Link>
+                          </li>
+                        </ul>
+                        {/* Second Heading */}
+                        <li className="text-[#133AFF] font-semibold space-y-1 hover:underline">
+                          <Link to="/anomaly-detection">Anomaly Detection</Link>
                         </li>
-                        <li>
-                          <Link to="/apartment-verification">Apartment Entry Verification </Link>
+                        <ul className=" space-y-2">
+                          <li className="hover:underline">
+                            <Link to="/weapon-detection" className="text-black">
+                              Weapon Detection
+                            </Link>
+                          </li>
+                          <li className="hover:underline">
+                            <Link to="/mobile-detection" className="text-black">
+                              Mobile Phone Detection
+                            </Link>
+                          </li>
+                          <li className="hover:underline">
+                            <Link to="/mask-detection" className="text-black">
+                              Mask Detection
+                            </Link>
+                          </li>
+                          <li className="hover:underline">
+                            <Link to="/helmet-detection" className="text-black">
+                              Helmet Detection
+                            </Link>
+                          </li>
+                        </ul>
+                        {/* Third Heading */}
+                        <li className="text-[#133AFF] font-semibold space-y-1 hover:underline">
+                          <Link to="/anpr">
+                            Automatic Number Plate Detection
+                          </Link>
                         </li>
-                        <li>
-                          <Link to="/face-ticketing">Face Based Ticketing</Link>
-                        </li>
+                        <ul className=" space-y-2">
+                          <li className="hover:underline">
+                            <Link to="/vehicle-authentication" className="text-black">
+                              Automated Vehicle Authentication
+                            </Link>
+                          </li>
+                          <li className="hover:underline">
+                            <Link to="/automated-management" className="text-black">
+                              Automated Billing & Slot Management
+                            </Link>
+                          </li>
+                        </ul>
                       </ul>
-
-                      <li className="blue-text">
-                        <Link to="/anomaly-detection"> Anomaly Detection </Link>
-                        {/* blue in color */}
-                      </li>
-                      <ul>
-                        <li>
-                          <Link to="/weapon-detection"> Weapon Detection</Link>
-                        </li>
-                        <li>
-                          <Link to="/mobile-detection"> Mobile Phone Detection </Link>
-                        </li>
-                        <li>
-                          <Link to="/mask-detection"> Mask Detection  </Link> </li>
-                        <li>
-                          <Link to="/helmet-detection"> Helmet Detection </Link> </li>
-                      </ul>
-
-                      <li className="blue-text">
-                        <Link to="/anpr"> Automatic Number Plate Detection </Link>
-                        {/* blue in color */}
-                      </li>
-                      <ul>
-                        <li>
-                          <Link to="/vehicle-authentication"> Automated Vehicle Authentication </Link>
-                        </li>
-                        <li>
-                          <Link to="/automated-management"> Automated Billing & Slot Management </Link>
-                        </li>
-                      </ul>
-                    </ul>
-
-                    {/* <hr className="dropdown-divider" /> */}
+                    </div>
                   </div>
-                  <div className="dropdown-right">
-                    <ul>
-                      <li className="blue-text">Industry Solutions</li>
-                      <ul>
-                        <li>
-                          <Link to="/education-industry">Education Industry </Link>
+                
+                  <div className="p-4">
+                    <ul className="space-y-2">
+                      <li className="text-[#133AFF] font-semibold space-y-1 hover:underline">
+                        Industry Solutions
+                      </li>
+                      <ul className=" space-y-2">
+                        <li className="hover:underline">
+                          <Link to="/education-industry" className="text-black">
+                            Education Industry
+                          </Link>
                         </li>
-                        <li>
-                          <Link to="/manufacturing-industry">Manufacturing Industry </Link>
+                        <li className="hover:underline">
+                          <Link to="/manufacturing-industry" className="text-black">
+                            Manufacturing Industry
+                          </Link>
                         </li>
-                        <li>
-                          <Link to="/services-industry">Service Industry </Link>
+                        <li className="hover:underline">
+                          <Link to="/services-industry" className="text-black">
+                            Service Industry
+                          </Link>
                         </li>
-                        <li>
-                          <Link to="/trading-industry">Trading & Distribution Industry  </Link>
+                        <li className="hover:underline">
+                          <Link to="/trading-industry" className="text-black">
+                            Trading & Distribution Industry
+                          </Link>
                         </li>
-                        <li>
-                          <Link to="/realestate-industry">Contracting & Real-Estate Industry </Link>
+                        <li className="hover:underline">
+                          <Link to="/realestate-industry" className="text-black">
+                            Contracting & Real-Estate Industry
+                          </Link>
                         </li>
                       </ul>
                     </ul>
                   </div>
                 </div>
               )}
-            </li>
+            </div>
+
             <li><a href="#usecases">Use Cases</a></li>
             <li>
               <Link to="/technical-corner">Tech Info </Link>
-              <Link to="">View Pricing </Link>
+              {/* <Link to="">View Pricing </Link> */}
             </li>
           </ul>
         </div>
         <div className="navbar-right">
           <button className="explore-button" onClick={toggleForm} >Contact Us</button>
-
-
         </div>
       </nav>
 
       {/* Contact Info Below Navbar */}
       <div className="contact-info">
         <p>
-          Contact us here for customised guidance: +91 xxxxxxxxxx or email us at
-          xxxx@onmeridian.com
+          For 24/7 customised guidance and support, call us at +91 124 4429900 or email us at info@onmeridian.com.  Meridian Solutions is always here to help
         </p>
       </div>
       {showForm && (

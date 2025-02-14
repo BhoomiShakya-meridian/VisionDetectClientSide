@@ -61,7 +61,7 @@ const ServicesIndustry = () => {
             <h1>Enhancing the Service Industry with VisionDetect.ai</h1>
 
 
-            <div className="education-image">
+            <div className="education-image serviceImage">
                 <img src={servicesindus} alt="Services Industry" />
             </div>
 
