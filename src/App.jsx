@@ -24,6 +24,8 @@ import Technicalcorner from './Component/Solutions/Technicalcorner';
 import FaceRegistration from './Component/DemoPages/Face/FaceRegistration';
 import FaceVerificationTrail from './Component/DemoPages/Face/FaceVerificationTrail';
 import FaceResultPage from './Component/DemoPages/Face/FaceResultPage';
+import LiveTesting from './Component/DemoPages/AnomalyPages/LiveTesting';
+import AnprLivetesting from './Component/DemoPages/ANPR/AnprLivetesting';
  
 
 function App() {
@@ -53,6 +55,8 @@ function App() {
         <Route path="/face-registrationTrial" element={<FaceRegistration/>} />
         <Route path="/face-verificationTrial" element={<FaceVerificationTrail/>} />
         <Route path="/VerificationResult" element={<FaceResultPage/>} />
+        <Route path= "/AnomalyLiveTesting" element={<LiveTesting/>}/>
+        <Route path= "/ANPRLiveTesting" element={<AnprLivetesting/>} />
       </Routes>
       <ToastContainer />
 

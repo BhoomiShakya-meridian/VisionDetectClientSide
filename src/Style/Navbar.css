@@ -1,5 +1,6 @@
 /* Navbar Styles */
 .navbar {
+
   display: flex;
   font-family: 'Poppins', sans-serif;
   justify-content: space-between;

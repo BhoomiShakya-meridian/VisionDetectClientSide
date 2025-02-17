@@ -1,0 +1,17 @@
+.education-image {
+    overflow: hidden;
+    width: 80%;
+    height: 20rem;
+    margin: auto;
+    background-size: cover;
+    background-position: bottom; /* Ensures background image focuses on the bottom */
+    background-repeat: no-repeat;
+    border-radius: 30px;
+  }
+
+  .video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }

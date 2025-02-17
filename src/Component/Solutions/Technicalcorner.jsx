@@ -71,7 +71,7 @@ const Technicalcorner = () => {
                 <img src={technicalcorner} alt="Manufacturing Industry" />
             </div> */}
 
-<div className="education-image">
+<div className="a">
   <video autoPlay loop muted playsInline className="video-background">
     <source src={crowd} type="video/mp4" />
     Your browser does not support the video tag.

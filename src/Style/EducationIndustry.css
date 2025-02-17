@@ -90,7 +90,6 @@
     height: 100%; 
     object-fit: cover; /* Ensures the image fills the container without distortion */
     object-position: bottom; /* Moves focus to the bottom part of the image */
-
   }
 
   .serviceImage{

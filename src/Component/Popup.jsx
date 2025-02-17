@@ -25,11 +25,11 @@ const Popup = ({ togglePopup }) => {
                 Face Verification & Recognition
               </button>
             </div>
-            <div className="option hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer">
+            <div className="option hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer" onClick={() => navigate("/AnomalyLiveTesting")}>
               <img src={anomaly} alt="Anomaly Detection" />
               <button onClick={togglePopup}>Anomaly Detection</button>
             </div>
-            <div className="option hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer">
+            <div className="option hover:scale-105 hover:text-[#133AFF] transition-all duration-200 ease-in-out cursor-pointer" onClick={() => navigate("/ANPRLiveTesting")}>
               <img src={anpr} alt="License Plate Detection" />
               <button onClick={togglePopup}>ANPR Detection</button>
             </div>
