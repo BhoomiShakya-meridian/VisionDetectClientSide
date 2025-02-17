@@ -4,9 +4,10 @@ import 'intro.js/minified/introjs.min.css';
 import '../../../Style/LiveTesting.css';
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import v1 from '../../../Assest/v1.mp4';
+import v1 from '../../../Assest/maskslivetesting.mp4';
 import v2 from '../../../Assest/v2.mp4';
 import v3 from '../../../Assest/v3.mp4';
+// import 
 
 function LiveTesting() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function LiveTesting() {
       steps: [
         {
           element: '.back-button',
-          intro: 'Click here to go back to the homepage.',
+          intro: 'Click here to go back to the Home page.',
         },
         {
           element: '.education-image',
@@ -26,14 +27,14 @@ function LiveTesting() {
         },
         {
           element: '.video-thumbnails',
-          intro: 'Click on a video to view it in the main area.',
+          intro: 'Select a video to test it live above. ',
         },
         {
           element: '.submit-button',
-          intro: 'Click here to submit your selection.',
+          intro: 'After selecting the desired video to test, click on the submit button to generate results.',
         },
       ],
-      showProgress: true,
+      showProgress: false,
       showBullets: false,
       exitOnOverlayClick: false,
       exitOnEsc: false,
@@ -42,9 +43,6 @@ function LiveTesting() {
     intro.start();
   }, []);
 
-  // const backButton = () => {
-  //   navigate('/');
-  // };
 
   const handleCrossButton = () => {
     setSelectedVideo(null);
