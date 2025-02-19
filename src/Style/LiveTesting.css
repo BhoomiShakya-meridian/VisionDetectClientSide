@@ -43,6 +43,7 @@
   justify-content: center !important;
   gap: 10px !important; /* Adds space between Next & Back buttons */
   width: 100% !important;
+  /* display: none !important; */
 }
 
 /* ✅ Next button */
@@ -87,4 +88,87 @@
 .introjs-button {
   margin: 0 !important;
   padding: 3px 10px !important;
+}
+
+.introjs-overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+#submithere {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  color: white;
+  font-size: 1.125rem; /* text-lg */
+  max-width: 300px;
+  white-space: normal;
+  padding: 1rem;
+}
+
+/* Add the arrow image above the container using ::before */
+#submithere::before {
+  content: "";
+  position: absolute;
+  bottom: 20%; /* positions the pseudo-element above #submithere */
+  left: -20%;
+  transform: translateX(-50%);
+  width: 100px;  /* adjust width as needed */
+  height: 100px; /* adjust height as needed */
+  background: url('../Assest/arr2.png') no-repeat center center;
+  background-size: contain;
+}
+
+#backbuttonarrow {
+  position: fixed;
+  top: 8rem;
+  left: -2rem;
+  transform: translateX(50%);
+  z-index: 100;
+  color: white;
+  font-size: 1.125rem; /* text-lg */
+  max-width: 300px;
+  white-space: normal;
+  padding: 1rem;
+}
+
+/* Add the arrow image above the container using ::before */
+#backbuttonarrow::before {
+  content: "";
+  position: absolute;
+  top: -100%; /* positions the pseudo-element above #submithere */
+  left: -25%;
+  transform: translateX(60%) rotate(60deg);
+  width: 100px;  /* adjust width as needed */
+  height: 100px; /* adjust height as needed */
+  background: url('../Assest/arr2.png') no-repeat center center;
+  background-size: contain;
+}
+
+
+#selectVideo {
+  position: fixed;
+  top: 18rem;
+  left: -5rem;
+  transform: translateX(50%);
+  z-index: 100;
+  color: white;
+  font-size: 1.125rem; /* text-lg */
+  max-width: 300px;
+  white-space: normal;
+  padding: 1rem;
+}
+
+/* Add the arrow image above the container using ::before */
+#selectVideo::before {
+  content: "";
+  position: absolute;
+  top: 10%; 
+  left: 80%;
+  transform: translateX(60%) scaleX(-1) rotate(-35deg);
+  width: 100px;  /* adjust width as needed */
+  height: 100px; /* adjust height as needed */
+  background: url('../Assest/arr2.png') no-repeat center center;
+  background-size: contain;
 }

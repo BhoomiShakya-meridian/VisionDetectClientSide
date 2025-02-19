@@ -38,7 +38,7 @@ p {
 /* === Buttons === */
 button {
   font-family: 'Poppins', sans-serif !important;
-  border: none;
+  /* border: none; */
   cursor: pointer;
 }
  
