@@ -60,22 +60,23 @@ const UseCase = () => {
             <div className="usecase-header">
                 <FaArrowLeft className="back-icon" onClick={backButton} />
                 {/* <h1><bold>Technical corner</bold></h1> */}
-                
                 {/* <button className="request-btn" onClick={togglePopup}>Request Demo</button> */}
             </div>
-            <div className="flex justify-center items-center mt-[-2rem]">            
+            <div className="flex justify-center items-center mt-[-2rem]">
                 <h1 id="usecasetext">Our Use Cases</h1>
+
             </div>
+ 
             {/* <div ref={(el) => sectionsRef.current[0] = el} className="animated-section">
                 <h1>Product Overview and Documentation</h1>
             </div> */}
             {/* <div className="education-image">
                 <img src={technicalcorner} alt="Manufacturing Industry" />
             </div> */}
-
+ 
             <div className="education-content">
                 {/* Section One */}
-                <div ref={(el) => sectionsRef.current[0] = el} className="animated-section">
+                <div ref={(el) => sectionsRef.current[0] = el} className="usecase-animated-section">
                     <div className="video-container">
                         <video autoPlay loop muted playsInline className="video-background">
                             <source src={croweded} type="video/mp4" />
@@ -92,9 +93,9 @@ const UseCase = () => {
                         </ul>
                     </div>
                 </div>
-
+ 
                 {/* Section Two */}
-                <div ref={(el) => sectionsRef.current[1] = el} className="animated-section">
+                <div ref={(el) => sectionsRef.current[1] = el} className="usecase-animated-section">
                     <div className="usecase-text">
                         <h1>Mask Detection</h1>
                         <ul>
@@ -111,9 +112,9 @@ const UseCase = () => {
                         </video>
                     </div>
                 </div>
-
+ 
                 {/* Section Three */}
-                <div ref={(el) => sectionsRef.current[2] = el} className="animated-section">
+                <div ref={(el) => sectionsRef.current[2] = el} className="usecase-animated-section">
                     <div className="video-container">
                         <video autoPlay loop muted playsInline className="video-background">
                             <source src={hairnetdt} type="video/mp4" />
@@ -130,9 +131,9 @@ const UseCase = () => {
                         </ul>
                     </div>
                 </div>
-
+ 
                 {/* Section Four */}
-                <div ref={(el) => sectionsRef.current[3] = el} className="animated-section">
+                <div ref={(el) => sectionsRef.current[3] = el} className="usecase-animated-section">
                     <div className="usecase-text">
                         <h1>ANPR (Automatic Number Plate Recognition)</h1>
                         <ul>
@@ -149,14 +150,14 @@ const UseCase = () => {
                         </video>
                     </div>
                 </div>
-
+ 
                 {/* Section Five */}
                 {/* <div ref={(el) => sectionsRef.current[4] = el} className="animated-section">
                     <h1>Security and Compliance</h1>
                     <p>Our platform prioritizes data security and compliance with industry standards. We ensure that all data is encrypted both in transit and at rest. The integration of SAS-enabled Azure Blob Storage further restricts data access to authorized users only, ensuring compliance with stringent security policies.</p>
                 </div> */}
-
-
+ 
+ 
                 {/* Section Six */}
                 {/* <div ref={(el) => sectionsRef.current[5] = el} className="animated-section">
                     <h1>Key Security Features</h1>
@@ -167,8 +168,8 @@ const UseCase = () => {
                     </ul>
                     <p>To ensure optimal performance, we recommend using high-quality IP cameras that support RTSP streaming. Here are our recommended specifications:</p>
                 </div> */}
-
-
+ 
+ 
                 {/* Section Seven */}
                 {/* <div ref={(el) => sectionsRef.current[6] = el} className="animated-section">
                     <h1>Camera Recommendations</h1>
@@ -178,8 +179,8 @@ const UseCase = () => {
                         <li><strong>Compression:</strong> H.264 or H.265 for efficient bandwidth usage.</li>
                     </ul>
                 </div> */}
-
-
+ 
+ 
                 {/* Section Eight */}
                 {/* <div ref={(el) => sectionsRef.current[7] = el} className="animated-section">
                     <h1>Minimum & Recommended Hardware Requirements</h1>
@@ -196,6 +197,7 @@ const UseCase = () => {
                 />
             )}
         </div>
+
     );
 };
 
