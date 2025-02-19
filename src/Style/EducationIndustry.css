@@ -100,13 +100,18 @@
     object-position: calc(50% - 0px)!important;
   }
 
-  .video-background {
+  .video-background12{
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: bottom;
+    border-radius: 30px;
   }
   
+  .videobox{
+    width: 100%;
+    height: 20rem;
+  }
   /* .education-content h3,
   .education-content h4 {
     margin-top: 20px;
