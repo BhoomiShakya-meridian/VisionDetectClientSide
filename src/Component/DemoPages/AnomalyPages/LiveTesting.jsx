@@ -1,25 +1,44 @@
 import React, { useState } from 'react';
 import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import v1 from '../../../Assest/maskslivetesting.mp4';
-import v2 from '../../../Assest/v2.mp4';
-import v3 from '../../../Assest/v3.mp4';
-import analyzedv2 from '../../../Assest/anomalydetection2.mp4';
-import arrow from '../../../Assest/arr2.png'
 import '../../../Style/LiveTesting.css'
+import v1 from '../../../Assest/maskslivetesting.mp4';
+import v2 from '../../../Assest/peopleTestingg.mp4';
+import v3 from '../../../Assest/v3.mp4';
+import v2Result from '../../../Assest/peopleTestingResult.mp4';
+import v1Result from '../../../Assest/hospitalmask.mp4';
+import v3Result from '../../../Assest/hairnetdt.mp4';
+
 
 
 function LiveTesting() {
   const navigate = useNavigate();
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [showAnalyzedVideo, setShowAnalyzedVideo] = useState(false);
+  const [analyzedVideo, setAnalyzedVideo] = useState(null);
   const [showOverlay, setShowOverlay] = useState(true);
+  const [isLoading, setLoading] = useState(false);
 
   const handleSubmit = () => {
-    // Wait for 4 seconds, then display the "analyzedv2" video
-    setTimeout(() => {
-      setShowAnalyzedVideo(true);
-    }, 4000);
+    let resultVideo = null;
+
+    if (selectedVideo === v1) {
+      resultVideo = v1Result;
+    } else if (selectedVideo === v2) {
+      resultVideo = v2Result;
+    } else if (selectedVideo === v3) {
+      resultVideo = v3Result;
+    }
+
+    if (resultVideo) {
+      setLoading(true); // Show loader
+      setShowAnalyzedVideo(true); // Reserve space for analyzed video
+
+      setTimeout(() => {
+        setAnalyzedVideo(resultVideo); // Set the analyzed video
+        setLoading(false); // Hide loader
+      }, 4000);
+    }
   };
 
   const handleBackClick = () => {
@@ -37,10 +56,10 @@ function LiveTesting() {
             style={{ opacity: 0.8, zIndex: 50 }}
           ></div>
           <div id="submithere" className="fixed">
-           <span className='font-semibold'>Step 3:</span> After selecting the desired video to test, click on the submit button to generate results.
+            <span className='font-semibold'>Step 3:</span> After selecting the desired video to test, click on the submit button to generate results.
           </div>
         </div>
-)}
+      )}
 
       <div className="relative">
         {/* Back Button */}
@@ -58,8 +77,7 @@ function LiveTesting() {
         )}
 
         <div className="relative w-full h-[20rem] mx-auto pt-2 space-x-12">
-          {/* Video Container */}
-          <div className={`relative w-4/5 h-[20rem] mx-auto  ${showAnalyzedVideo ? 'flex gap-x-6' : ''}`}>
+          <div className={`relative w-4/5 h-[20rem] mx-auto ${showAnalyzedVideo ? 'flex gap-x-6' : ''}`}>
             {/* Selected Video */}
             <div className={`${showAnalyzedVideo ? 'w-1/2' : 'w-full'} h-full overflow-hidden bg-cover bg-bottom bg-no-repeat rounded-[30px] transition-all duration-500`}>
               {selectedVideo ? (
@@ -78,22 +96,38 @@ function LiveTesting() {
               )}
             </div>
 
-            {/* Analyzed Video */}
-            {showAnalyzedVideo && (
-              <div className="w-1/2 h-full overflow-hidden bg-cover bg-bottom bg-no-repeat rounded-[30px]">
+            {/* Analyzed Video / Loader Placeholder */}
+            <div className={`${showAnalyzedVideo ? 'w-1/2' : 'hidden'} h-full overflow-hidden bg-cover bg-bottom bg-no-repeat rounded-[30px] flex justify-center items-center relative`}>
+              {/* Show loader while waiting for result */}
+              {isLoading && (
+                <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-80 rounded-[30px]">
+                  <dotlottie-player
+                    src="https://lottie.host/90cd6ac4-247c-49be-aec4-a747636330cd/98GcJUMUqS.lottie"
+                    background="transparent"
+                    speed="1"
+                    loop
+                    autoplay
+                    style={{ width: '50%', height: '50%' }}
+                  ></dotlottie-player>
+                </div>
+              )}
+
+              {/* Show analyzed video after loading */}
+              {!isLoading && analyzedVideo && (
                 <video
-                  key={analyzedv2}
+                  key={analyzedVideo}
                   autoPlay
                   loop
                   muted
                   playsInline
                   className="w-full h-full object-cover object-bottom"
                 >
-                  <source src={analyzedv2} type="video/mp4" />
+                  <source src={analyzedVideo} type="video/mp4" />
                 </video>
-              </div>
-            )}
+              )}
+            </div>
           </div>
+
         </div>
 
         <button
@@ -111,8 +145,8 @@ function LiveTesting() {
       <div className="relative flex flex-row items-center justify-center space-x-8 mt-8">
         {showOverlay && (
           <div
-          id="selectVideo"
-          className="fixed "
+            id="selectVideo"
+            className="fixed "
           >
             <span className='font-semibold'>Step 2:</span> Select a video to test it live above.
           </div>
