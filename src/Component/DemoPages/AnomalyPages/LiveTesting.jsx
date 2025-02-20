@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import '../../../Style/LiveTesting.css'
-import v1 from '../../../Assest/maskslivetesting.mp4';
+import v1 from '../../../Assest/MaskLiveUnprocessed.mp4';
 import v2 from '../../../Assest/peopleTestingg.mp4';
-import v3 from '../../../Assest/v3.mp4';
+import v3 from '../../../Assest/hairnetLive.mp4';
 import v2Result from '../../../Assest/peopleTestingResult.mp4';
-import v1Result from '../../../Assest/hospitalmask.mp4';
-import v3Result from '../../../Assest/hairnetdt.mp4';
-
+import v1Result from '../../../Assest/MaskLive.mp4';
+import v3Result from '../../../Assest/hairnetLiveTested.mp4';
 
 
 function LiveTesting() {
@@ -133,8 +132,9 @@ function LiveTesting() {
         <button
           className="popup-close cursor-pointer z-200"
           onClick={() => {
-            setSelectedVideo(null);
-            setShowAnalyzedVideo(false);
+            // setSelectedVideo(null);
+            // setShowAnalyzedVideo(false);
+            navigate('/')
           }}
         >
           &times;
