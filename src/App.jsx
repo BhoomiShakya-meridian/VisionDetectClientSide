@@ -58,7 +58,7 @@ function App() {
         <Route path="/VerificationResult" element={<FaceResultPage/>} />
         <Route path= "/AnomalyLiveTesting" element={<LiveTesting/>}/>
         <Route path= "/ANPRLiveTesting" element={<AnprLivetesting/>} />
-        <Route path="/use-case" element={<UseCase/>} />
+        <Route path="/UseCases" element={<UseCase/>} />
       </Routes>
       <ToastContainer />
 

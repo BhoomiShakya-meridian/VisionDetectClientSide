@@ -213,7 +213,7 @@ const Navbar = () => {
               )}
             </div>
 
-            <li><a href="/use-case">Use Cases</a></li>
+            <li><a href="/UseCases">Use Cases</a></li>
             <li>
               <Link to="/technical-corner">Tech Info </Link>
               {/* <Link to="">View Pricing </Link> */}
