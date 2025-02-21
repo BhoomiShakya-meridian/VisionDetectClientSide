@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../Style/FaceVerification.css";
-import anomalydetection from "../../Assest/anomalydetection2.mp4";
-// import hospitalmask from '../../Assest/hospitalmask.mp4'
 import assistance from "../../Assest/assistance.webp";
 import { FiArrowLeft } from "react-icons/fi";
 import Popup from '../Popup.jsx'; // Import the Popup component
@@ -11,6 +9,9 @@ import { FaHome } from "react-icons/fa";
 
 
 const MaskDetection = () => {
+
+    let anomalydetection="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/anomalydetection2.mp4"
+
     const [animatePage, setAnimatePage] = useState(false);
     const [isPopupVisible, setIsPopupVisible] = useState(false);
   const navigate = useNavigate()

@@ -75,7 +75,7 @@ function FaceRegistration() {
     }
   
 
-    const backendUrl = `${import.meta.env.VITE_BACKEND}/register/`;
+    const backendUrl = `${import.meta.env.VITE_BACKEND}/register`;
     const formData = new FormData();
     
 

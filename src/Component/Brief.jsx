@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../Style/Brief.css";
-import briefvd from "../Assest/briefvd.mp4";
 import Popup from "./Popup"; // Import the Popup component
 import "../Style/Popup.css";
 
 const Brief = () => {
+  let briefvd = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/briefvd.mp4"
   const [text, setText] = useState(""); // State for live typing
   const paragraph =
     "“The coming era of artificial intelligence will not be about man versus machine, but rather about how we can work together to build a smarter and safer world.”";

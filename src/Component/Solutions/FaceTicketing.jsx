@@ -1,14 +1,16 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../Style/FaceVerification.css";
-import facereg from "../../Assest/facereg2.mp4";
 import assistance from "../../Assest/assistance.webp";
 import { FiArrowLeft } from "react-icons/fi";
-import Popup from '../Popup.jsx'; // Import the Popup component
+import Popup from '../Popup.jsx';
 import { FaHome } from "react-icons/fa";
 
 
 const FaceTicketing = () => {
+
+  let facereg= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/facereg2.mp4"
+
   const [animatePage, setAnimatePage] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const navigate = useNavigate()

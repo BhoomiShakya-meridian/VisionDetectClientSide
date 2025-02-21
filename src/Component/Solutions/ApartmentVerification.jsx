@@ -1,15 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../../Style/FaceVerification.css";
-import facereg from "../../Assest/facereg2.mp4";
 import { Link, useNavigate } from "react-router-dom";
 import assistance from "../../Assest/assistance.webp";
-import gatevideo from '../../Assest/apartmentvideo.mp4'
 import { FiArrowLeft } from "react-icons/fi";
 import Popup from '../Popup.jsx'; // Import the Popup component
 import { FaHome } from "react-icons/fa";
 
 
 const ApartmentVerification = () => {
+
+    let gatevideo= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/apartmentvideo.mp4"
+
     const [animatePage, setAnimatePage] = useState(false);
     const [isPopupVisible, setIsPopupVisible] = useState(false);
       const navigate = useNavigate()
@@ -109,26 +110,7 @@ const ApartmentVerification = () => {
 
             {/* Solutions List */}
             <div className="solutions-list">
-                {/* <ul>
-                    <li className="step_item" >
-                        <Link to="/exam-verification">
-                            <button className="solution-btn">
-                                Exam Face Registration & Verification
-                            </button>
-                        </Link>
-                    </li>
-                    <li className="step_item">
-                        <Link to="/face-kyc">
-                            <button className="solution-btn">Face KYC (Know Your Customer)</button>
-                        </Link>
-                    </li>
-                
-                    <li className="step_item">
-                        <Link to="/face-ticketing">
-                            <button className="solution-btn">Face Based Ticketing</button>
-                        </Link>
-                    </li>
-                </ul> */}
+               
                 <ul>
                     {[
                         { path: "/exam-verification", label: "Exam Face Registration & Verification" },

@@ -2,15 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../Style/ZoomSectionout.css";
 import "../Style/Popup.css";
-import alldetections from "../Assest/alldetections.mp4";
-import anomalydetection from "../Assest/anomalydetection2.mp4";
-import anprdetection from "../Assest/anprdetection2.mp4";
 import Verification from "../Assest/Verification.webp";
 import anpr from "../Assest/anpr.webp";
 import anomaly from "../Assest/anomaly.webp";
 import Popup from "./Popup"; // Import the Popup component
 
 const ZoomSection = () => {
+  let alldetections="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/alldetections.mp4";
+  let anprdetection="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/anprdetection2.mp4";
+  let anomalydetection="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/anomalydetection2.mp4";
   const [isZoomOut, setIsZoomOut] = useState(false);
   const [isDemoButtonVisible, setIsDemoButtonVisible] = useState(false);
   const [isDemoButtonAnimating, setIsDemoButtonAnimating] = useState(false);

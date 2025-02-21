@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import '../../../Style/LiveTesting.css'
-import v1 from '../../../Assest/MaskLiveUnprocessed.mp4';
-import v2 from '../../../Assest/peopleTestingg.mp4';
-import v3 from '../../../Assest/hairnetLive.mp4';
-import v2Result from '../../../Assest/peopleTestingResult.mp4';
-import v1Result from '../../../Assest/MaskLive.mp4';
-import v3Result from '../../../Assest/hairnetLiveTested.mp4';
 
 
 function LiveTesting() {
+  let v1= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/MaskLiveUnprocessed.mp4";
+  let v2= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/peopleTestingg.mp4";
+  let v3= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/hairnetLive.mp4";
+  let v1Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/MaskLive.mp4";
+  let  v2Result="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/peopleTestingResult.mp4";
+  let v3Result= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/hairnetLiveTested.mp4"
   const navigate = useNavigate();
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [showAnalyzedVideo, setShowAnalyzedVideo] = useState(false);

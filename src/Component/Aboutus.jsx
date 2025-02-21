@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../Style/Aboutus.css"; // Import the CSS file
-import laptop from "../Assest/laptop.mp4";
 import Popup from "./Popup"; // Import the Popup component
 import "../Style/Popup.css";
 
 const Aboutus = () => {
   // States for typing animation
+  let laptop="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/laptop.mp4"
   const [cameraText, setCameraText] = useState("");
   const [remainingText, setRemainingText] = useState("");
   const [cameraDone, setCameraDone] = useState(false); // Indicates that "Cameras" is fully typed

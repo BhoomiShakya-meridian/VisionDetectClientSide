@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"; // Fixed import
 import "../../Style/FaceVerification.css";
 import { Link, useNavigate } from "react-router-dom";
-import anprdetection from "../../Assest/anprdetection2.mp4";
 import assistance from "../../Assest/assistance.webp";
 import { FiArrowLeft } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
@@ -10,6 +9,9 @@ import Popup from '../Popup.jsx'; // Import the Popup component
 
 
 const VehicleAuthentication = () => {
+
+    let anprdetection= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/anprdetection2.mp4"
+
     const [animatePage, setAnimatePage] = useState(false);
     const [isPopupVisible, setIsPopupVisible] = useState(false);
   const navigate = useNavigate()

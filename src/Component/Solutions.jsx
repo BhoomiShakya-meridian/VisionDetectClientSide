@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import '../Style/Solutions.css'; // Importing the CSS file for styling
 import 'animate.css'; /* Make sure this is included if you are using animate.css */
-import facereg from "../Assest/facereg2.mp4";
-import anomalydetection from "../Assest/anomalydetection2.mp4";
-import hospitalmask from '../Assest/hospitalmask.mp4'
-import anprdetection from "../Assest/anprdetection2.mp4";
 import Popup from './Popup.jsx'; // Import the Popup component
 
  
 const Solutions = () => {
+  let hospitalmask ="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/hospitalmask.mp4";
+  let anprdetection= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/anprdetection2.mp4";
+  let facereg= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/facereg2.mp4"
   const [popupContent, setPopupContent] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);

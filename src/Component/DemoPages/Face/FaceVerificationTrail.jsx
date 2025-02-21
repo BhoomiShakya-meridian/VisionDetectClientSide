@@ -34,7 +34,7 @@ function FaceVerificationTrail() {
       return; // Stop form submission
     }
 
-    const backendUrl = `${import.meta.env.VITE_BACKEND}/verify/`;
+    const backendUrl = `${import.meta.env.VITE_BACKEND}/verify`;
     const formData = new FormData();
 
     if (capturedImage) {
@@ -51,22 +51,11 @@ function FaceVerificationTrail() {
       });
       setLoading(false);
       console.log('Verification successful:', response.data);
-      //  if (response.data.success) {
-      //         toast.success(response.data.message);
-      //         setCapturedImage(null);
-      //         navigate('/face-verificationTrial');
-      //         formRef.current.reset();    
       
-      //       } else {
-      //         toast.error(response.data.message);
-      //       }
       const { message, matched_users , success } = response.data;
       if (matched_users && success && matched_users.length > 0) {
-        // const matchedUser = matched_users[0].matched_user;  // Get first matched user
-        // const similarityScore = matched_users[0].similarity_score;
-        // Display detailed verification success message
+      
         toast.success(
-          // `${message}\nName: ${matchedUser.name}\nEmail: ${matchedUser.email}\nSimilarity Score: ${(similarityScore * 100).toFixed(2)}%`
           `${message}`
         );
         setCapturedImage(null);

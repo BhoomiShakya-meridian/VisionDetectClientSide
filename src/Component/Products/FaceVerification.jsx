@@ -2,19 +2,22 @@ import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../Style/FaceVerification.css";
-import facereg from "../../Assest/facereg2.mp4";
 import assistance from "../../Assest/assistance.webp";
 import { FiArrowLeft } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
 
 
 const FaceVerification = () => {
+
+  let facereg = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/facereg2.mp4";
+
+
   const navigate = useNavigate();
   const [animatePage, setAnimatePage] = useState(false);
   const [isInViewImportance, setIsInViewImportance] = useState(false);
   const [isInViewHowItWorks, setIsInViewHowItWorks] = useState(false);
   const [isInViewApplications, setIsInViewApplications] = useState(false);
-  
+
   const importanceRef = useRef(null);
   const howItWorksRef = useRef(null);
   const applicationsRef = useRef(null);
@@ -73,11 +76,11 @@ const FaceVerification = () => {
           &#8592;
         </div> */}
         <div className="absolute  w-10 h-10 m-2 flex items-center justify-center bg-black rounded-full cursor-pointer z-100" onClick={() => window.history.back()}>
-                  <FiArrowLeft className="text-white h-5 w-5 cursor-pointer"/>
-                </div>
-                    <div className="absolute w-10 h-10 m-2 flex items-center justify-center left-[3rem] bg-black rounded-full cursor-pointer z-100" onClick={() =>navigate('/') }>
-                          <FaHome className="text-white h-5 w-5 cursor-pointer"/>
-                        </div>
+          <FiArrowLeft className="text-white h-5 w-5 cursor-pointer" />
+        </div>
+        <div className="absolute w-10 h-10 m-2 flex items-center justify-center left-[3rem] bg-black rounded-full cursor-pointer z-100" onClick={() => navigate('/')}>
+          <FaHome className="text-white h-5 w-5 cursor-pointer" />
+        </div>
         <video className="hero-video" autoPlay loop muted src={facereg} />
       </div>
 
@@ -93,49 +96,25 @@ const FaceVerification = () => {
 
       {/* Solutions List */}
       <div className="solutions-list">
-        {/* <ul>
-          <li className="step_item">
-            <Link to="/exam-verification">
-              <button className="solution-btn">
-                Exam Face Registration & Verification
-              </button>
-            </Link>
-          </li>
-          <li className="step_item">
-            <Link to="/face-kyc">
-              <button className="solution-btn">Face KYC (Know Your Customer)</button>
-            </Link>
-          </li>
-          <li className="step_item">
-            <Link to="/apartment-verification">
-              <button className="solution-btn">Apartment Entry Verification</button>
-            </Link>
-          </li>
-          <li className="step_item">
-            <Link to="/face-ticketing">
-              <button className="solution-btn">Face Based Ticketing</button>
-            </Link>
-          </li>
-        </ul> */}
 
-<ul>
-        {[
-          { path: "/exam-verification", label: "Exam Face Registration & Verification" },
-          { path: "/face-kyc", label: "Face KYC (Know Your Customer)" },
-          { path: "/apartment-verification", label: "Apartment Entry Verification" },
-          { path: "/face-ticketing", label: "Face Based Ticketing" }
-        ].map((item, index) => (
-          <li
-            key={index}
-            className={`step_item ${visible ? "visible" : ""}`}
-            style={{ transitionDelay: `${index * 0.2}s` }} // Dynamic delay
-          >
-            <Link to={item.path}>
-              <button className="solution-btn">{item.label}</button>
-            </Link>
-          </li>
-        ))}
-      </ul>
+        <ul>
+          {[
+            { path: "/exam-verification", label: "Exam Face Registration & Verification" },
+            { path: "/face-kyc", label: "Face KYC (Know Your Customer)" },
+            { path: "/apartment-verification", label: "Apartment Entry Verification" },
+            { path: "/face-ticketing", label: "Face Based Ticketing" }
+          ].map((item, index) => (
+            <li
+              key={index}
+              className={`step_item ${visible ? "visible" : ""}`}
+              style={{ transitionDelay: `${index * 0.2}s` }} // Dynamic delay
+            >
+              <Link to={item.path}>
+                <button className="solution-btn">{item.label}</button>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* Paragraph Section */}
@@ -146,14 +125,14 @@ const FaceVerification = () => {
       </div>
 
       {/* Why is Face Registration & Verification Important */}
-      <div 
-        className={`importance-section ${isInViewImportance ? 'animate__animated animate__fadeInUp' : ''}`} 
+      <div
+        className={`importance-section ${isInViewImportance ? 'animate__animated animate__fadeInUp' : ''}`}
         ref={importanceRef}
         style={{ opacity: isInViewImportance ? 1 : 0, transition: 'opacity 0.5s' }}
       >
         <h2>
           <span className="blue-text">Why is</span> Face Registration & Verification{" "}
-          <span className="blue-text">important</span> for you? 
+          <span className="blue-text">important</span> for you?
         </h2>
         <ul>
           <li>
@@ -172,8 +151,8 @@ const FaceVerification = () => {
       </div>
 
       {/* How it Works */}
-      <div 
-        className={`how-it-works ${isInViewHowItWorks ? 'animate__animated animate__fadeInUp' : ''}`} 
+      <div
+        className={`how-it-works ${isInViewHowItWorks ? 'animate__animated animate__fadeInUp' : ''}`}
         ref={howItWorksRef}
         style={{ opacity: isInViewHowItWorks ? 1 : 0, transition: 'opacity 0.5s' }}
       >
@@ -203,8 +182,8 @@ const FaceVerification = () => {
       </div>
 
       {/* Applications */}
-      <div 
-        className={`applications-section ${isInViewApplications ? 'animate__animated animate__fadeInUp' : ''}`} 
+      <div
+        className={`applications-section ${isInViewApplications ? 'animate__animated animate__fadeInUp' : ''}`}
         ref={applicationsRef}
         style={{ opacity: isInViewApplications ? 1 : 0, transition: 'opacity 0.5s' }}
       >

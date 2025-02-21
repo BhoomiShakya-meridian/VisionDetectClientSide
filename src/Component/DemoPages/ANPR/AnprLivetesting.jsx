@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { FiArrowLeft } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import '../../../Style/LiveTesting.css'
-import v1 from '../../../Assest/ANPR1Live.mp4';
-import v2 from '../../../Assest/ANPR2Live.mp4';
-import v3 from '../../../Assest/ANPR3Live.mp4';
-import v1Result from '../../../Assest/ANPR1LiveTested.mp4';
-import v2Result from '../../../Assest/ANPR2LiveTested.mp4';
-import v3Result from '../../../Assest/ANPR3LiveTested.mp4';
 
 
 function AnprLivetesting() {
+  let v1 = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/ANPR1Live.mp4"
+  let v1Result = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/ANPR1LiveTested.mp4";
+  let v2 = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/ANPR2Live.mp4";
+  let v2Result = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/ANPR2LiveTested.mp4";
+  let v3 = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/ANPR3Live.mp4";
+  let v3Result = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/ANPR3LiveTested.mp4";
+
+
+
   const navigate = useNavigate();
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [showAnalyzedVideo, setShowAnalyzedVideo] = useState(false);

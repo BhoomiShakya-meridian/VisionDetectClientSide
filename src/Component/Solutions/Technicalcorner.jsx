@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../../Style/EducationIndustry.css";
 import { FaArrowLeft } from "react-icons/fa";
-import technicalcorner from "../../Assest/technicalcorner.webp";
 import { useNavigate } from "react-router-dom";
 import Popup from '../Popup.jsx'; // Import the Popup component
-import crowd from "../../Assest/crowd.mp4";
 
 
 const Technicalcorner = () => {
+
+    let crowd= "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/crowd.mp4"
+
     const [animatePage, setAnimatePage] = useState(false);
     const sectionsRef = useRef([]);
     const navigate = useNavigate()

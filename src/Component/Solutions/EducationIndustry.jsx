@@ -143,20 +143,6 @@ const EducationIndustry = () => {
                         <li>Helping counselors and educators provide timely support.</li>
                     </ul>
                 </div>
-
-
-                {/* Section Eight */}
-                {/* <div ref={(el) => sectionsRef.current[7] = el} className="animated-section">
-          <h1>Managing Large Groups of Students and Staff</h1>
-          <p>With AI-powered monitoring, VisionDetect.ai helps educational institutions manage large crowds efficiently:</p>
-          <ul>
-            <li>Monitoring real-time occupancy and movement patterns.</li>
-            <li>Alerting administrators of overcrowded areas.</li>
-            <li>Streamlining crowd management in auditoriums and cafeterias.</li>
-          </ul>
-        </div> */}
-
-
                 {/* Section Nine */}
                 <div ref={(el) => sectionsRef.current[7] = el} className="animated-section">
                     <h1>Revolutionizing Campus Life</h1>

@@ -3,15 +3,14 @@ import { FaArrowLeft } from "react-icons/fa";
 import '../Style/UseCase.css'
 import { useNavigate } from "react-router-dom";
 import Popup from './Popup.jsx'
-// import crowd from "../../Assest/crowd.mp4";
-// import croweded from "../../Assest/croweded.mp4";
-import croweded from "../Assest/croweded.mp4";
-import maskdt from "../Assest/maskdt.mp4";
-import hairnetdt from "../Assest/hairnetdt.mp4";
-import anprdt from "../Assest/anprdt.mp4";
-
 
 const UseCase = () => {
+    
+    let croweded="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/croweded.mp4"
+    let maskdt="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/maskdt.mp4"
+    let hairnetdt="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/hairnetdt.mp4"
+    let anprdt="https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/anprdt.mp4"
+    
     const [animatePage, setAnimatePage] = useState(false);
     const sectionsRef = useRef([]);
     const navigate = useNavigate()

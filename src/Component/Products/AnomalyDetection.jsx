@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../Style/FaceVerification.css";
-import anomalydetection from "../../Assest/anomalydetection2.mp4";
 import assistance from "../../Assest/assistance.webp";
 import { FiArrowLeft } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
 
 
 const AnomalyDetection = () => {
+  let anomalydetection = "https://visiondetect.blob.core.windows.net/visiondetectclientsidedata/Videos/anomalydetection2.mp4"
   const [animatePage, setAnimatePage] = useState(false);
 
   // Refs to track the visibility of each section
@@ -74,10 +74,10 @@ const AnomalyDetection = () => {
           &#8592;
         </div> */}
         <div className="absolute  w-10 h-10 m-2 flex items-center justify-center bg-black rounded-full cursor-pointer z-100" onClick={() => window.history.back()}>
-          <FiArrowLeft className="text-white h-5 w-5 cursor-pointer"/>
+          <FiArrowLeft className="text-white h-5 w-5 cursor-pointer" />
         </div>
-        <div className="absolute w-10 h-10 m-2 flex items-center justify-center left-[3rem] bg-black rounded-full cursor-pointer z-100" onClick={() =>navigate('/') }>
-          <FaHome className="text-white h-5 w-5 cursor-pointer"/>
+        <div className="absolute w-10 h-10 m-2 flex items-center justify-center left-[3rem] bg-black rounded-full cursor-pointer z-100" onClick={() => navigate('/')}>
+          <FaHome className="text-white h-5 w-5 cursor-pointer" />
         </div>
 
         <video className="hero-video" autoPlay loop muted src={anomalydetection} />
@@ -96,47 +96,26 @@ const AnomalyDetection = () => {
 
       {/* Solutions List */}
       <div className="solutions-list">
-        {/* <ul>
-          <li>
-            <Link to="/weapon-detection">
-              <button className="solution-btn">Weapon Detection</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/mobile-detection">
-              <button className="solution-btn">Mobile Phone Detection</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/mask-detection">
-              <button className="solution-btn">Mask Detection</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/helmet-detection">
-              <button className="solution-btn">Helmet Detection</button>
-            </Link>
-          </li>
-        </ul> */}
 
-<ul>
-        {[
-          { path: "/weapon-detection", label: "Weapon Detection" },
-          { path: "/mobile-detection", label: "Mobile Phone Detection" },
-          { path: "/mask-detection", label: "Mask Detection" },
-          { path: "/helmet-detection", label: "Helmet Detection" }
-        ].map((item, index) => (
-          <li
-            key={index}
-            className={`step_item ${visible ? "visible" : ""}`}
-            style={{ transitionDelay: `${index * 0.2}s` }} // Dynamic delay
-          >
-            <Link to={item.path}>
-              <button className="solution-btn">{item.label}</button>
-            </Link>
-          </li>
-        ))}
-      </ul>
+
+        <ul>
+          {[
+            { path: "/weapon-detection", label: "Weapon Detection" },
+            { path: "/mobile-detection", label: "Mobile Phone Detection" },
+            { path: "/mask-detection", label: "Mask Detection" },
+            { path: "/helmet-detection", label: "Helmet Detection" }
+          ].map((item, index) => (
+            <li
+              key={index}
+              className={`step_item ${visible ? "visible" : ""}`}
+              style={{ transitionDelay: `${index * 0.2}s` }} // Dynamic delay
+            >
+              <Link to={item.path}>
+                <button className="solution-btn">{item.label}</button>
+              </Link>
+            </li>
+          ))}
+        </ul>
 
 
       </div>
